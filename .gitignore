@@ -1,23 +1,18 @@
-# Ignore Python cache files
+# Python cache files
 __pycache__/
 *.py[cod]
 
-# Ignore environment files
-.env
-.venv
-AI_ML/  # Add your specific virtual environment folder name if applicable
+# Virtual environment directories
+.venv/
+.env/
 
 # Ignore log files
 *.log
+app.log
 
-# Ignore model weights
+# Ignore model weights and checkpoints
 *.pth
 checkpoints/
 
-# Ignore datasets
-data/
-
-# Ignore log files
-logs/
-
+# Ignore system-specific files
 .DS_Store

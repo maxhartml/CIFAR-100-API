@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIFAR-100 Image Classifier</title>
+    <!-- External stylesheet for clean styling -->
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <!-- Google Font for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- External JavaScript for dynamic functionality -->
+    <script src="/static/js/main.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <!-- App title -->
+        <h1>CIFAR-100 Image Classifier</h1>
+        <!-- Upload form -->
+        <form id="upload-form">
+            <!-- File input with custom label -->
+            <label for="file">Choose Image</label>
+            <input type="file" id="file" name="file" accept="image/*" required>
+            <!-- Submit button -->
+            <button type="submit">Classify</button>
+        </form>
+        <!-- Image preview (hidden until an image is uploaded) -->
+        <img id="image-preview" src="" alt="Image Preview" style="display: none;">
+        <!-- Result container (displays predictions) -->
+        <div id="result"></div>
+        <!-- Loading spinner (hidden initially) -->
+        <div id="loading-spinner" style="display: none;">Processing...</div>
+    </div>
+</body>
+</html>

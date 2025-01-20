@@ -1,0 +1,114 @@
+/* Global styles for the entire body */
+body {
+    font-family: 'Roboto', Arial, sans-serif; /* Professional font */
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #1c1c1c, #141414); /* Dark gradient background */
+    color: #ddd; /* Light grey text color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Container styling for the app box */
+.container {
+    text-align: center;
+    background: #2b2b2b; /* Dark container background */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); /* Shadow for depth */
+    width: 100%;
+    max-width: 400px; /* Keep container compact */
+}
+
+/* Heading styles */
+h1 {
+    margin-bottom: 20px;
+    color: #fff; /* Bright white for heading */
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* Form styles */
+form {
+    margin-bottom: 20px;
+}
+
+/* Input styles */
+input[type="file"] {
+    display: none; /* Hide the default file input */
+}
+
+/* Custom label to style the file input */
+label[for="file"] {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #444; /* Subtle dark grey button background */
+    color: white;
+    border: 1px solid #555; /* Subtle border for definition */
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+label[for="file"]:hover {
+    background-color: #555; /* Slightly lighter on hover */
+}
+
+/* Submit button styling */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff; /* Bright blue button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Result container styling */
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #fff; /* Bright white text */
+    background: #444; /* Subtle grey background */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7); /* Shadow for depth */
+}
+
+/* Image preview styling */
+#image-preview {
+    margin-top: 20px;
+    max-width: 100%; /* Scale to fit container */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7); /* Depth shadow */
+    border: 2px solid #007bff; /* Bright blue border */
+}
+
+/* Loading spinner */
+#loading-spinner {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #007bff; /* Bright blue spinner text */
+    font-weight: bold;
+}
+
+/* Responsive styles */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    button, label[for="file"] {
+        width: 100%; /* Make buttons full-width */
+    }
+}
