@@ -2,26 +2,32 @@ import torch
 from torchvision import transforms
 from PIL import Image
 import io
-from custom_models.cifar100_resnet import CustomResNet18
+from models.custom_CNN import CNN
+from models.custom_ResNet import CustomResNet18
 
-def load_model(model_path):
+def load_model(model_type, checkpoint_path):
     """
-    Load the pre-trained PyTorch model.
+    Load the pre-trained PyTorch model based on the specified model type.
 
     Args:
-        model_path (str): Path to the model checkpoint.
+        model_type (str): Type of the model to load ("CNN" or "CustomResNet18").
+        checkpoint_path (str): Path to the model checkpoint.
 
     Returns:
         torch.nn.Module: Loaded PyTorch model.
     """
-    model_path = f"./checkpoints/{model_path}"
+    checkpoint_path = f"./checkpoints/{checkpoint_path}"
 
-    # Initialize the custom ResNet-18 model
-    model = CustomResNet18()
-    model.fc = torch.nn.Linear(model.fc.in_features, 100)  # Adjust output layer for CIFAR-100
+    # Initialize the specified model
+    if model_type == "CNN":
+        model = CNN()
+    elif model_type == "CustomResNet18":
+        model = CustomResNet18()
+    else:
+        raise ValueError(f"Unsupported model type: {model_type}")
 
     # Load the model weights
-    state_dict = torch.load(model_path, map_location="cpu")
+    state_dict = torch.load(checkpoint_path, map_location="cpu")
     model.load_state_dict(state_dict)
 
     # Set the model to evaluation mode
@@ -43,7 +49,7 @@ def predict(model, image_bytes):
     preprocess = transforms.Compose([
         transforms.Resize((32, 32)),  # Resize to CIFAR-100 image dimensions
         transforms.ToTensor(),
-        transforms.Normalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5)),  # Normalise as per training
+        transforms.Normalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5)),  # Normalize as per training
     ])
 
     # Load and preprocess the image

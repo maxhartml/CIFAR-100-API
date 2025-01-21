@@ -23,11 +23,15 @@ app = FastAPI(
 templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-# Load the pre-trained model during application startup
-model_path = "run_20250120-193831_model.pth"
+# Dynamically load the model during application startup
+MODEL_CONFIG = {
+    "type": "CustomResNet18",  # Change this to "CustomResNet18"/"CNN" to use the ResNet/CNN models
+    "checkpoint_path": "model_20250121-061218.pth"  # Update this to your checkpoint file
+}
+
 try:
-    model = load_model(model_path)
-    logging.info(f"Model loaded successfully from {model_path}")
+    model = load_model(MODEL_CONFIG["type"], MODEL_CONFIG["checkpoint_path"])
+    logging.info(f"Model ({MODEL_CONFIG['type']}) loaded successfully from {MODEL_CONFIG['checkpoint_path']}")
 except Exception as e:
     logging.error(f"Failed to load the model: {str(e)}")
     raise RuntimeError("Model loading failed. Check logs for details.")
