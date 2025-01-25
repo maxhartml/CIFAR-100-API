@@ -1,14 +1,32 @@
-# Python cache files
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 
 # Virtual environment directories
 .venv/
 .env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Unit test / coverage reports
+htmlcov/
+.coverage
+.coverage.*
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
 
 # Ignore log files
 *.log
-app.log
 
 # Ignore model weights and checkpoints
 *.pth
@@ -16,3 +34,7 @@ checkpoints/
 
 # Ignore system-specific files
 .DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
