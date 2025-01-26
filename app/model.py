@@ -46,7 +46,7 @@ def predict(model, image_bytes):
         dict: Top-3 predicted class labels and confidence scores.
     """
     # Define preprocessing transformations (should match training)
-    preprocess = transforms.Compose([
+    transform = transforms.Compose([
         transforms.Resize((32, 32)),  # Resize to CIFAR-100 image dimensions
         transforms.ToTensor(),
         transforms.Normalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5)),  # Normalize as per training
@@ -54,7 +54,7 @@ def predict(model, image_bytes):
 
     # Load and preprocess the image
     image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
-    input_tensor = preprocess(image).unsqueeze(0)  # Add batch dimension
+    input_tensor = transform(image).unsqueeze(0)  # Add batch dimension
 
     # Perform inference
     with torch.no_grad():
@@ -68,6 +68,8 @@ def predict(model, image_bytes):
         for prob, class_idx in zip(top_probs[0], top_classes[0])
     ]
     return {"predictions": result}
+
+
 
 # CIFAR-100 class labels (static list)
 CIFAR100_CLASSES = [

@@ -26,7 +26,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # Dynamically load the model during application startup
 MODEL_CONFIG = {
     "type": "CustomResNet18",  # Change this to "CustomResNet18"/"CNN" to use the ResNet/CNN models
-    "checkpoint_path": "model_20250121-061218.pth"  # Update this to your checkpoint file
+    "checkpoint_path": "CustomResNet18_20250125-165329.pth"  # Update this to your checkpoint file
 }
 
 try:
