@@ -3,32 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CIFAR-100 Image Classifier</title>
-    <!-- External stylesheet for clean styling -->
+    <title>CIFAR-100 Classifier</title>
+    <!-- External stylesheet -->
     <link rel="stylesheet" href="/static/css/styles.css">
-    <!-- Google Font for modern typography -->
+    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <!-- External JavaScript for dynamic functionality -->
+    <!-- JavaScript -->
     <script src="/static/js/main.js" defer></script>
 </head>
 <body>
     <div class="container">
         <!-- App title -->
         <h1>CIFAR-100 Image Classifier</h1>
+        <!-- Description -->
+        <p class="description">
+            Upload an image, and our advanced deep learning model will classify it into one of 100 categories, including animals, objects, and scenes. 
+            The app uses a ResNet-based model trained on CIFAR-100 to make accurate predictions.
+        </p>
         <!-- Upload form -->
         <form id="upload-form">
-            <!-- File input with custom label -->
-            <label for="file">Choose Image</label>
+            <label for="file" class="custom-label">📁 Choose Image</label>
             <input type="file" id="file" name="file" accept="image/*" required>
-            <!-- Submit button -->
-            <button type="submit">Classify</button>
+            <button type="submit">🚀 Classify</button>
         </form>
-        <!-- Image preview (hidden until an image is uploaded) -->
-        <img id="image-preview" src="" alt="Image Preview" style="display: none;">
-        <!-- Result container (displays predictions) -->
-        <div id="result"></div>
-        <!-- Loading spinner (hidden initially) -->
-        <div id="loading-spinner" style="display: none;">Processing...</div>
+        <!-- Image preview -->
+        <div class="preview-container">
+            <img id="image-preview" src="" alt="Image Preview" style="display: none;">
+        </div>
+        <!-- Loading spinner -->
+        <div id="loading-spinner" class="spinner" style="display: none;">Loading...</div>
+        <!-- Progress bar -->
+        <div id="progress-bar" class="progress-bar" style="display: none;">
+            <div class="progress"></div>
+        </div>
+        <!-- Results -->
+        <div id="result">
+            <h3>Results will appear here.</h3>
+        </div>
+        <!-- Footer -->
+        <footer>
+            <p>Powered by CIFAR-100 & ResNet | Developed by ML Enthusiasts</p>
+        </footer>
     </div>
 </body>
 </html>

@@ -1,114 +1,152 @@
-/* Global styles for the entire body */
+/* Body styling */
 body {
-    font-family: 'Roboto', Arial, sans-serif; /* Professional font */
+    font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #1c1c1c, #141414); /* Dark gradient background */
-    color: #ddd; /* Light grey text color */
+    background: linear-gradient(135deg, #141e30, #243b55); /* Beautiful gradient */
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
 }
 
-/* Container styling for the app box */
+/* App container */
 .container {
     text-align: center;
-    background: #2b2b2b; /* Dark container background */
-    padding: 30px;
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    padding: 40px;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); /* Shadow for depth */
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.9);
     width: 100%;
-    max-width: 400px; /* Keep container compact */
+    max-width: 500px;
+    animation: fadeIn 1s ease;
 }
 
-/* Heading styles */
+/* Title */
 h1 {
-    margin-bottom: 20px;
-    color: #fff; /* Bright white for heading */
-    font-size: 24px;
+    margin-bottom: 10px;
+    font-size: 28px;
+    color: #61dafb; /* Light cyan for contrast */
     font-weight: 700;
 }
 
-/* Form styles */
+/* Description */
+.description {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #d6d6d6;
+}
+
+/* Form */
 form {
     margin-bottom: 20px;
 }
 
-/* Input styles */
-input[type="file"] {
-    display: none; /* Hide the default file input */
-}
-
-/* Custom label to style the file input */
+/* Custom label for file input */
 label[for="file"] {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 12px 25px;
     font-size: 16px;
-    background-color: #444; /* Subtle dark grey button background */
-    color: white;
-    border: 1px solid #555; /* Subtle border for definition */
-    border-radius: 5px;
+    background-color: #444;
+    color: #fff;
+    border-radius: 25px;
     cursor: pointer;
-    margin-bottom: 10px;
-    transition: all 0.3s ease;
+    transition: 0.3s;
 }
 
 label[for="file"]:hover {
-    background-color: #555; /* Slightly lighter on hover */
+    background-color: #555;
 }
 
-/* Submit button styling */
+/* Button */
 button {
-    padding: 10px 20px;
+    padding: 12px 25px;
     font-size: 16px;
-    background-color: #007bff; /* Bright blue button */
-    color: white;
+    background-color: #1cb5e0; /* Bright blue */
+    color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: 0.3s;
 }
 
 button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0099cc;
 }
 
-/* Result container styling */
-#result {
+/* Preview container */
+.preview-container {
     margin-top: 20px;
+}
+
+#image-preview {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-top: 15px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+    border: 3px solid #1cb5e0;
+}
+
+/* Spinner */
+.spinner {
+    margin-top: 15px;
+    color: #1cb5e0;
+    font-weight: bold;
     font-size: 18px;
-    color: #fff; /* Bright white text */
-    background: #444; /* Subtle grey background */
+    animation: fadeIn 0.5s ease;
+}
+
+/* Progress bar */
+.progress-bar {
+    position: relative;
+    width: 100%;
+    height: 10px;
+    background: #444;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.progress {
+    height: 100%;
+    width: 0;
+    background: #1cb5e0;
+    transition: width 0.5s ease;
+}
+
+/* Result */
+#result {
+    margin-top: 25px;
+    background: rgba(0, 0, 0, 0.6);
     padding: 15px;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7); /* Shadow for depth */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.5s ease;
 }
 
-/* Image preview styling */
-#image-preview {
+#result h3 {
+    margin-bottom: 10px;
+    color: #61dafb;
+}
+
+/* Footer */
+footer {
     margin-top: 20px;
-    max-width: 100%; /* Scale to fit container */
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7); /* Depth shadow */
-    border: 2px solid #007bff; /* Bright blue border */
+    font-size: 14px;
+    color: #bbb;
 }
 
-/* Loading spinner */
-#loading-spinner {
-    margin-top: 20px;
-    font-size: 18px;
-    color: #007bff; /* Bright blue spinner text */
-    font-weight: bold;
-}
-
-/* Responsive styles */
-@media (max-width: 480px) {
-    h1 {
-        font-size: 20px;
+/* Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
     }
-
-    button, label[for="file"] {
-        width: 100%; /* Make buttons full-width */
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

@@ -52,7 +52,7 @@ def predict(model, image_bytes):
         transforms.Normalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5)),  # Normalize as per training
     ])
 
-    # Load and preprocess the image
+    # Load and preprocess the input image
     image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
     input_tensor = transform(image).unsqueeze(0)  # Add batch dimension
 
@@ -68,7 +68,6 @@ def predict(model, image_bytes):
         for prob, class_idx in zip(top_probs[0], top_classes[0])
     ]
     return {"predictions": result}
-
 
 
 # CIFAR-100 class labels (static list)
